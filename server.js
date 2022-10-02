@@ -8,7 +8,7 @@ const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')  
 
-require('dotenv').config({path: './config/.env'})
+require('dotenv').config({path: '.env'})
 
 // Passport config
 require('./config/passport')(passport)
