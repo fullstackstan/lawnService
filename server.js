@@ -9,6 +9,7 @@ const logger = require('morgan')
 const connectDB = require('./config/database') 
 const homeRoutes = require('./routes/home') 
 const authRoutes = require('./routes/auth')
+var path = require('path');  
 
 require('dotenv').config({path: './config/.env'})
 
@@ -19,7 +20,7 @@ connectDB()
 
 app.set('views', './views')
 app.set('view engine', 'ejs')
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use(logger('dev'))
@@ -33,7 +34,7 @@ app.use(
       store: new MongoStore({ mongooseConnection: mongoose.connection }),
     })
   )
-  
+  app.use(passport.authenticate('session'));
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
