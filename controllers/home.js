@@ -5,5 +5,9 @@ module.exports = {
 
     getMain: (req,res)=>{
         res.render('main.ejs')
+    },
+
+    getMyProperties: (req,res)=>{
+        res.render('myProperties.ejs')
     }
 }
