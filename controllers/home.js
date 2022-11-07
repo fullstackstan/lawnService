@@ -4,6 +4,6 @@ module.exports = {
     },
 
     getMain: (req,res)=>{
-        res.render('main.ejs')
+        res.send(req.user)
     }
 }
